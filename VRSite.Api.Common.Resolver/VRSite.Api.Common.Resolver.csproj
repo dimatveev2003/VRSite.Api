@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VRSite.Api.Authorization.JwtAuthorization\VRSite.Api.Authorization.JwtAuthorization.csproj" />
+    <ProjectReference Include="..\VRSite.Api.Business.ClientBusiness\VRSite.Api.Business.ClientBusiness.csproj" />
+    <ProjectReference Include="..\VRSite.Api.Business.LaboratoriesBusiness\VRSite.Api.Business.LaboratoriesBusiness.csproj" />
+    <ProjectReference Include="..\VRSite.Api.Business.OrderBusiness\VRSite.Api.Business.OrderBusiness.csproj" />
+    <ProjectReference Include="..\VRSite.Api.Common.Configurations\VRSite.Api.Common.Configurations.csproj" />
+  </ItemGroup>
+
+</Project>
