@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRSite.Api.Business.Laborat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRSite.Api.Business.OrderBusiness", "VRSite.Api.Business.OrderBusiness\VRSite.Api.Business.OrderBusiness.csproj", "{FDA4DE28-2AEA-4610-A0B3-F9D1E90DA5DA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VRSite.Api.Services", "VRSite.Api.Services", "{C5FF7A96-1ADB-4AFC-B7C0-0675D87EFFEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRSite.Api.MailService", "VRSite.Api.MailService\VRSite.Api.MailService.csproj", "{8E6F8AD5-BA5E-4FDF-886B-2EEFC87EC93D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,10 @@ Global
 		{FDA4DE28-2AEA-4610-A0B3-F9D1E90DA5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDA4DE28-2AEA-4610-A0B3-F9D1E90DA5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDA4DE28-2AEA-4610-A0B3-F9D1E90DA5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E6F8AD5-BA5E-4FDF-886B-2EEFC87EC93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E6F8AD5-BA5E-4FDF-886B-2EEFC87EC93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E6F8AD5-BA5E-4FDF-886B-2EEFC87EC93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E6F8AD5-BA5E-4FDF-886B-2EEFC87EC93D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +92,7 @@ Global
 		{1D20B49F-DE78-41AB-858F-85757A793483} = {1BDA4176-2518-45FB-90AD-FF01E4657236}
 		{7150278B-72F1-4965-AAE1-8FE1247E72E0} = {1BDA4176-2518-45FB-90AD-FF01E4657236}
 		{FDA4DE28-2AEA-4610-A0B3-F9D1E90DA5DA} = {1BDA4176-2518-45FB-90AD-FF01E4657236}
+		{8E6F8AD5-BA5E-4FDF-886B-2EEFC87EC93D} = {C5FF7A96-1ADB-4AFC-B7C0-0675D87EFFEC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1237B4C2-6F56-4393-A906-DC2AF82E87B3}

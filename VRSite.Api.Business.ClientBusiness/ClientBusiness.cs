@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using VRSite.Api.Authorization.JwtAuthorization.Contracts;
@@ -11,6 +10,9 @@ using VRSite.Api.Business.ClientBusiness.Models.Responses;
 using VRSite.Api.Common.WebApiBase.Exceptions;
 using VRSite.Api.Context.Repository.Contracts;
 using VRSite.Api.Context.Repository.Entities;
+using VRSite.Api.MailService.Contracts;
+using VRSite.Api.MailService.Models;
+using UserModel = VRSite.Api.MailService.Models.UserModel;
 
 namespace VRSite.Api.Business.ClientBusiness
 {
@@ -22,11 +24,14 @@ namespace VRSite.Api.Business.ClientBusiness
 
         private readonly ITokenService _tokenService;
 
-        public ClientBusiness(IRepository repository, IMapper mapper, ITokenService tokenService)
+        private readonly IMailService _mailService;
+
+        public ClientBusiness(IRepository repository, IMapper mapper, ITokenService tokenService, IMailService mailService)
         {
             _repository = repository;
             _mapper = mapper;
             _tokenService = tokenService;
+            _mailService = mailService;
         }
 
         public async Task<RegisterClientResponseModel> RegisterClient(RegisterClientRequestModel model)
@@ -40,6 +45,9 @@ namespace VRSite.Api.Business.ClientBusiness
             await _repository.AuthData.AddAsync(new DbAuthData {AccessToken = pwdHash, Client = client});
             await _repository.SaveDbChangesAsync();
 
+            await _mailService.SendRegistrationMail(new UserModel
+                {Email = model.Email, Login = model.Login});
+            
             return new RegisterClientResponseModel { IsSuccess = true };
         }
 
@@ -66,7 +74,7 @@ namespace VRSite.Api.Business.ClientBusiness
             return result;
         }
 
-        public async Task<UserModel> GetClientInfo()
+        public async Task<Authorization.JwtAuthorization.Models.UserModel> GetClientInfo()
         {
             var user = _tokenService.GetUserModel();
             var client = await _repository.Clients.FirstOrDefaultAsync(c => c.Id == user.Id);

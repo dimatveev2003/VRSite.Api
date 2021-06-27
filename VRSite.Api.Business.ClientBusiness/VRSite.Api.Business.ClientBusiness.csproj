@@ -10,8 +10,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VRSite.Api.Authorization.JwtAuthorization\VRSite.Api.Authorization.JwtAuthorization.csproj" />
+    <ProjectReference Include="..\VRSite.Api.Common.Configurations\VRSite.Api.Common.Configurations.csproj" />
     <ProjectReference Include="..\VRSite.Api.Common.WebApiBase\VRSite.Api.Common.WebApiBase.csproj" />
     <ProjectReference Include="..\VRSite.Api.Context.Repository\VRSite.Api.Context.Repository.csproj" />
+    <ProjectReference Include="..\VRSite.Api.MailService\VRSite.Api.MailService.csproj" />
   </ItemGroup>
 
   <ItemGroup>

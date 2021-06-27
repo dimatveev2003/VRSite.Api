@@ -105,6 +105,7 @@ namespace VRSite.Api
             _resolver.ResolveConfigs(services);
             _resolver.ResolveBusiness(services);
             _resolver.ResolveMapper(services);
+            _resolver.ResolveServices(services);
         }
 
         public override void RegisterLogging(IServiceCollection services)

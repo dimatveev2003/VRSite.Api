@@ -11,5 +11,7 @@ namespace VRSite.Api.Common.Resolver.Contracts
         void ResolveConfigs(IServiceCollection services);
 
         void ResolveMapper(IServiceCollection services);
+
+        void ResolveServices(IServiceCollection services);
     }
 }

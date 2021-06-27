@@ -51,5 +51,10 @@ namespace VRSite.Api.Common.Resolver
 
             services.AddSingleton(prop => mapper);
         }
+
+        public void ResolveServices(IServiceCollection services)
+        {
+            ServicesResolverHelper.Resolve(services);
+        }
     }
 }

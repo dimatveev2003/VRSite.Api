@@ -15,6 +15,7 @@
     <ProjectReference Include="..\VRSite.Api.Business.LaboratoriesBusiness\VRSite.Api.Business.LaboratoriesBusiness.csproj" />
     <ProjectReference Include="..\VRSite.Api.Business.OrderBusiness\VRSite.Api.Business.OrderBusiness.csproj" />
     <ProjectReference Include="..\VRSite.Api.Common.Configurations\VRSite.Api.Common.Configurations.csproj" />
+    <ProjectReference Include="..\VRSite.Api.MailService\VRSite.Api.MailService.csproj" />
   </ItemGroup>
 
 </Project>

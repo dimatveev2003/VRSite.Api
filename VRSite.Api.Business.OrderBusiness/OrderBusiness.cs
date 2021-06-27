@@ -11,6 +11,8 @@ using VRSite.Api.Business.OrderBusiness.Models.Requests;
 using VRSite.Api.Business.OrderBusiness.Models.Responses;
 using VRSite.Api.Context.Repository.Contracts;
 using VRSite.Api.Context.Repository.Entities;
+using VRSite.Api.MailService.Contracts;
+using VRSite.Api.MailService.Models;
 
 namespace VRSite.Api.Business.OrderBusiness
 {
@@ -23,11 +25,14 @@ namespace VRSite.Api.Business.OrderBusiness
 
         private readonly ITokenService _tokenService;
 
-        public OrderBusiness(IRepository repository, IMapper mapper, ITokenService tokenService)
+        private readonly IMailService _mailService;
+
+        public OrderBusiness(IRepository repository, IMapper mapper, ITokenService tokenService, IMailService mailService)
         {
             _repository = repository;
             _mapper = mapper;
             _tokenService = tokenService;
+            _mailService = mailService;
         }
 
         public async Task<CreateOrderResponseModel> CreateOrder(CreateOrderRequestModel requestModel)
@@ -68,6 +73,24 @@ namespace VRSite.Api.Business.OrderBusiness
             }
             
             await _repository.SaveDbChangesAsync();
+
+            var userModel = new UserModel
+            {
+                Email = user.Email,
+                Phone = user.Phone,
+                Id = user.Id,
+                Login = user.Login,
+                OrganizationName = user.OrganizationName
+            };
+
+            var createdOrder = new CreatedOrderModel
+            {
+                CountProducts = requestModel.OrderItems.Length,
+                Price = $"{requestModel.Amount} {currency.CurrencySymbol}",
+                OrderId = order.Id
+            };
+
+            await _mailService.SendOrderCreatedMailToManager(userModel, createdOrder);
 
             return new CreateOrderResponseModel {IsSuccess = true, OrderId = order.Id};
         }
